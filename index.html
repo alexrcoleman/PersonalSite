@@ -1,24 +1,22 @@
-<!-- Generates webpage with resume and source code -->
+<!-- Generates this webpage with resume and source code -->
 <html>
 
 <head>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/highlight.min.js"></script>
   <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
   <script type="text/javascript">
     function style(pre) {
-      let text = pre.html();
-      let lines = (text.match(/\n/g) || []).length + 1;
+      let lines = (pre.html().match(/\n/g) || []).length + 1;
       let linesPre = $('<pre class="lines code plaintext"></pre>').insertBefore(pre);
-      let lineNumbers = '';
       for (let i = 1; i <= lines; i++) {
-        lineNumbers = lineNumbers + i + '\n';
+        linesPre.append(i + '\n');
       }
-      linesPre.text(lineNumbers);
     }
     $(window).on('load', function() {
       let linesCode = $('<code class="html"></code>').appendTo($('#source'));
-      linesCode.text("<!-- Generates webpage with resume and source code -->\n" + $('html')[0].outerHTML.trim());
+      linesCode.text("<!-- Generates this webpage with resume and source code -->\n " + $('html')[0].outerHTML.trim());
       style($('#source'));
       style($('#resume'));
       $('pre').each((index, block) => {
@@ -65,26 +63,26 @@
       background-color: #21252b;
       color: #abb2bf;
       font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier;
-      font-size: 14px;
       box-shadow: 0px 0px 15px 1px #101010;
       height: 90%;
       min-width: 800px;
       min-height: 800px;
-      margin-left: 15px;
+      margin-left: 25px;
     }
 
     .code,
     code {
       font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier;
-      font-size: 14px;
+      font-size: 15px;
       margin: 0;
       height: 100%;
+      line-height: 1.5;
     }
 
     .editor_pane {
       background-color: #282c34;
       font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier;
-      font-size: 14;
+      font-size: 15px;
       border-left: 1px solid #1A1A1A;
       border-bottom: 1px solid #1A1A1A;
       height: 100%;
@@ -127,6 +125,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      font-size: 12px;
     }
 
     .pane_header_empty {
@@ -232,20 +231,6 @@
     </div>
     <div class="atomroot">
       <div class="editor_panes">
-        <!-- <div class="project_pane">
-        <div class="tab_header">
-          Project
-        </div>
-        <div>
-          personal_site
-        </div>
-        <div>
-          aboutme.html
-        </div>
-        <div>
-          aboutme.txt
-        </div>
-      </div> -->
         <div class="page">
           <div class="pane_header">
             <div class="pane_header_tab">
@@ -270,7 +255,8 @@ ________________________________________________________________________
 			UCF Local Programming Contest Winner (2017)
 			National Merit Scholar (2015)
 
- Experience:	Facebook - Software Engineer Internship
+ Experience:
+ Facebook - Software Engineer Internship
 			Summer 2017/2018
 •	Worked on projects spanning from back-end to front-end
 •	Most recently, worked on a team to create, test, and launch a new feature for web built with modern web technologies
@@ -285,7 +271,8 @@ UCF - Programming Team (ICPC)
 •	Web full stack (React/Relay/GraphQL/Hack)
 •	Advanced algorithms and data structures
 
- Activities:		2017/18 ACM ICPC World Finals (Spring 2017/18)
+ Activities:
+2017/18 ACM ICPC World Finals (Spring 2017/18)
 •	Represented UCF at the ICPC World Finals competition
 •	Finished 10th place of 140 teams from a starting field of 49,935 contestants from 3,098 universities in 111 countries
 •	National champions 2017, North American champions 2018
