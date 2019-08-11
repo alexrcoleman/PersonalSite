@@ -1,4 +1,4 @@
-<!-- Generates my resume with source code @alexrcoleman -->
+<!-- Generates webpage with resume and source code -->
 <html>
 
 <head>
@@ -18,7 +18,7 @@
     }
     $(window).on('load', function() {
       let linesCode = $('<code class="html"></code>').appendTo($('#source'));
-      linesCode.text("<!-- Generates my resume with source code @alexrcoleman -->\n" + $('html')[0].outerHTML.trim());
+      linesCode.text("<!-- Generates webpage with resume and source code -->\n" + $('html')[0].outerHTML.trim());
       style($('#source'));
       style($('#resume'));
       $('pre').each((index, block) => {
