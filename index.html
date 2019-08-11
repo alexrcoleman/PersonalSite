@@ -8,7 +8,7 @@
     function style(pre) {
       let text = pre.html();
       let lines = (text.match(/\n/g) || []).length + 1;
-      let linesPre = $('<pre class="lines code"></pre>').insertBefore(pre);
+      let linesPre = $('<pre class="lines code plaintext"></pre>').insertBefore(pre);
       let lineNumbers = '';
       for (let i = 1; i <= lines; i++) {
         lineNumbers = lineNumbers + i + '\n';
@@ -41,11 +41,14 @@
       font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier;
       font-size: 14px;
       margin: 20px;
-      box-shadow: 0px 0px 5px 1px black;
+      box-shadow: 0px 0px 15px 1px #101010;
       height: 90%;
+      min-width: 800px;
+      min-height: 800px;
     }
 
-    .code {
+    .code,
+    code {
       font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier;
       font-size: 14px;
       margin: 0;
@@ -56,8 +59,8 @@
       background-color: #282c34;
       font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier;
       font-size: 14;
-      border-left: 1px solid black;
-      border-bottom: 1px solid black;
+      border-left: 1px solid #1A1A1A;
+      border-bottom: 1px solid #1A1A1A;
       height: 100%;
       display: flex;
       flex-direction: row;
@@ -91,8 +94,8 @@
     .pane_header_tab {
       background-color: #282c34;
       width: 400px;
-      border-left: 1px solid black;
-      border-right: 1px solid black;
+      border-left: 1px solid #1A1A1A;
+      border-right: 1px solid #1A1A1A;
       text-align: center;
       color: #cbd2df;
       display: flex;
@@ -101,7 +104,7 @@
     }
 
     .pane_header_empty {
-      border-bottom: 1px solid black;
+      border-bottom: 1px solid #1A1A1A;
       width: 100%;
     }
 
@@ -129,21 +132,17 @@
       background: #555;
     }
 
-    pre .hljs-comment,
-    pre .hljs-title {
-      color: #969896;
-    }
-
     pre .hljs-variable,
-    pre .hljs-attribute,
     pre .hljs-tag .hljs-name,
     pre .hljs-regexp,
-    pre .hljs-html .hljs-doctype,
-    pre .hljs-css .hljs-id,
-    pre .hljs-css .hljs-class,
-    pre .hljs-css .hljs-pseudo {
+    pre .html .hljs-doctype,
+    pre .css .hljs-id,
+    pre .css .hljs-class,
+    pre .css .hljs-selector-tag,
+    pre .css .hljs-pseudo {
       color: #cc6666;
     }
+
 
     pre .hljs-number,
     pre .hljs-preprocessor,
@@ -151,7 +150,8 @@
     pre .hljs-literal,
     pre .hljs-params,
     pre .hljs-constant,
-    pre .hljs-attr {
+    pre .hljs-attr,
+    pre .hljs-selector-class {
       color: #de935f;
     }
 
@@ -164,24 +164,24 @@
     pre .hljs-value,
     pre .hljs-inheritance,
     pre .hljs-header {
-      color: #b5bd68;
+      color: #7bc36e;
     }
 
-    pre .hljs-css .hljs-hexcolor {
+    pre .css .hljs-hexcolor {
       color: #8abeb7;
     }
 
-    pre .hljs-function,
-    pre .hljs-python .hljs-decorator,
-    pre .hljs-python .hljs-title,
-    pre .hljs-ruby .hljs-function .hljs-title,
-    pre .hljs-javascript .hljs-title {
-      color: #81a2be;
+    pre .javascript .hljs-title {
+      color: #51abec;
     }
 
     pre .hljs-keyword,
     pre .hljs-javascript .hljs-function {
-      color: #b294bb;
+      color: #cc6edc;
+    }
+
+    pre .hljs-comment {
+      color: #969896;
     }
   </style>
 </head>
@@ -249,7 +249,6 @@ UCF - Programming Team (ICPC)
 Google Code Jam (Spring 2017)
 •	International individual programming competition
 •	Placed 75th of a starting 30,000 in Google Code Jam
-
           </pre>
         </div>
       </div>
