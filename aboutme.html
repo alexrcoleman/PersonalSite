@@ -1,0 +1,272 @@
+<!-- Generates my resume with source code @alexrcoleman -->
+<html>
+
+<head>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/highlight.min.js"></script>
+  <script type="text/javascript">
+    function style(pre) {
+      let text = pre.html();
+      let lines = (text.match(/\n/g) || []).length + 1;
+      let linesPre = $('<pre class="lines code"></pre>').insertBefore(pre);
+      let lineNumbers = '';
+      for (let i = 1; i <= lines; i++) {
+        lineNumbers = lineNumbers + i + '\n';
+      }
+      linesPre.text(lineNumbers);
+    }
+    $(window).on('load', function() {
+      let linesCode = $('<code class="html"></code>').appendTo($('#source'));
+      linesCode.text("<!-- Generates my resume with source code @alexrcoleman -->\n" + $('html')[0].outerHTML.trim());
+      style($('#source'));
+      style($('#resume'));
+      $('pre').each((index, block) => {
+        if (!$(block).hasClass('plaintext')) {
+          hljs.highlightBlock(block);
+        }
+      });
+      $('#recursion')[0].src = location.href;
+      console.log($('#recursion'));
+    });
+  </script>
+
+  <style>
+    body {
+      background-color: #383c44;
+    }
+
+    .root {
+      background-color: #21252b;
+      color: #abb2bf;
+      font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier;
+      font-size: 14px;
+      margin: 20px;
+      box-shadow: 0px 0px 5px 1px black;
+      height: 90%;
+    }
+
+    .code {
+      font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier;
+      font-size: 14px;
+      margin: 0;
+      height: 100%;
+    }
+
+    .editor_pane {
+      background-color: #282c34;
+      font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier;
+      font-size: 14;
+      border-left: 1px solid black;
+      border-bottom: 1px solid black;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      overflow: auto;
+    }
+
+    .lines {
+      text-align: right;
+      margin: 0px 5px;
+      color: #5b626f;
+    }
+
+    .editor_panes {
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .project_pane {
+      flex-basis: 400px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pane_header {
+      display: flex;
+      flex-direction: row;
+      height: 30px;
+    }
+
+    .pane_header_tab {
+      background-color: #282c34;
+      width: 400px;
+      border-left: 1px solid black;
+      border-right: 1px solid black;
+      text-align: center;
+      color: #cbd2df;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .pane_header_empty {
+      border-bottom: 1px solid black;
+      width: 100%;
+    }
+
+    .page {
+      height: 100%;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    ::-webkit-scrollbar-corner {}
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    pre .hljs-comment,
+    pre .hljs-title {
+      color: #969896;
+    }
+
+    pre .hljs-variable,
+    pre .hljs-attribute,
+    pre .hljs-tag .hljs-name,
+    pre .hljs-regexp,
+    pre .hljs-html .hljs-doctype,
+    pre .hljs-css .hljs-id,
+    pre .hljs-css .hljs-class,
+    pre .hljs-css .hljs-pseudo {
+      color: #cc6666;
+    }
+
+    pre .hljs-number,
+    pre .hljs-preprocessor,
+    pre .hljs-built_in,
+    pre .hljs-literal,
+    pre .hljs-params,
+    pre .hljs-constant,
+    pre .hljs-attr {
+      color: #de935f;
+    }
+
+    pre .hljs-class,
+    pre .hljs-css .hljs-rules .hljs-attribute {
+      color: #f0c674;
+    }
+
+    pre .hljs-string,
+    pre .hljs-value,
+    pre .hljs-inheritance,
+    pre .hljs-header {
+      color: #b5bd68;
+    }
+
+    pre .hljs-css .hljs-hexcolor {
+      color: #8abeb7;
+    }
+
+    pre .hljs-function,
+    pre .hljs-python .hljs-decorator,
+    pre .hljs-python .hljs-title,
+    pre .hljs-ruby .hljs-function .hljs-title,
+    pre .hljs-javascript .hljs-title {
+      color: #81a2be;
+    }
+
+    pre .hljs-keyword,
+    pre .hljs-javascript .hljs-function {
+      color: #b294bb;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="root">
+    <div class="editor_panes">
+      <!-- <div class="project_pane">
+        <div class="tab_header">
+          Project
+        </div>
+        <div>
+          personal_site
+        </div>
+        <div>
+          aboutme.html
+        </div>
+        <div>
+          aboutme.txt
+        </div>
+      </div> -->
+      <div class="page">
+        <div class="pane_header">
+          <div class="pane_header_tab">
+            resume.txt
+          </div>
+          <div class="pane_header_empty">
+          </div>
+        </div>
+        <div class="editor_pane">
+          <pre class="code plaintext" id="resume">Alexander Coleman
+a.coleman@knights.ucf.edu
+484-723-3559
+________________________________________________________________________
+ Education:		University of Central Florida – Orlando, FL
+			Bachelor of Science Degree, Spring 2019
+			Major: Computer Science
+			Minor: Mathematics
+			GPA: 3.84/4.0
+
+ Honors:		ICPC World Finals Bronze Medalist & NA Champion (2018)
+			ICPC World Finals National Champion (2017)
+			UCF Local Programming Contest Winner (2017)
+			National Merit Scholar (2015)
+
+ Experience:	Facebook - Software Engineer Internship
+			Summer 2017/2018
+•	Worked on projects spanning from back-end to front-end
+•	Most recently, worked on a team to create, test, and launch a new feature for web built with modern web technologies
+
+UCF - Programming Team (ICPC)
+			University of Central Florida, Orlando, FL
+			September 2015 – Present
+•	Worked in a team of three to design programs that used efficient algorithms and advanced data structures to solve complex problems in various ICPC contests
+
+ Skills:		Experienced with…
+•	Java, C/C++, JS, PHP
+•	Web full stack (React/Relay/GraphQL/Hack)
+•	Advanced algorithms and data structures
+
+ Activities:		2017/18 ACM ICPC World Finals (Spring 2017/18)
+•	Represented UCF at the ICPC World Finals competition
+•	Finished 10th place of 140 teams from a starting field of 49,935 contestants from 3,098 universities in 111 countries
+•	National champions 2017, North American champions 2018
+Google Code Jam (Spring 2017)
+•	International individual programming competition
+•	Placed 75th of a starting 30,000 in Google Code Jam
+
+          </pre>
+        </div>
+      </div>
+      <div class="page">
+        <div class="pane_header">
+          <div class="pane_header_tab">
+            index.html
+          </div>
+          <div class="pane_header_empty">
+          </div>
+        </div>
+        <div class="editor_pane">
+          <pre class="code" id="source"></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
