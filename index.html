@@ -4,6 +4,7 @@
 <head>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/highlight.min.js"></script>
+  <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
   <script type="text/javascript">
     function style(pre) {
       let text = pre.html();
@@ -36,15 +37,42 @@
     }
 
     .root {
+      display: flex;
+      flex-direction: row;
+      height: 100%;
+      margin: 15px;
+    }
+
+    .LI-simple-link {
+      margin: 10px;
+    }
+
+
+    .cards {
+      display: flex;
+      flex-direction: column;
+      min-width: 250px;
+    }
+
+    .card {
+      box-shadow: 0px 0px 5px 1px #101010;
+      min-width: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #282c34;
+    }
+
+    .atomroot {
       background-color: #21252b;
       color: #abb2bf;
       font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier;
       font-size: 14px;
-      margin: 20px;
       box-shadow: 0px 0px 15px 1px #101010;
       height: 90%;
       min-width: 800px;
       min-height: 800px;
+      margin-left: 15px;
     }
 
     .code,
@@ -183,13 +211,30 @@
     pre .hljs-comment {
       color: #969896;
     }
+
+    a,
+    a:link {
+      color: #abb2df;
+    }
+
+    a:hover {
+      color: #73AA77;
+    }
   </style>
 </head>
 
 <body>
   <div class="root">
-    <div class="editor_panes">
-      <!-- <div class="project_pane">
+    <div class="cards">
+      <div class="card">
+        <div class="LI-profile-badge" data-version="v1" data-size="medium" data-locale="en_US" data-type="vertical" data-theme="light" data-vanity="alex-coleman-60221b81"><a class="LI-simple-link"
+            href='https://www.linkedin.com/in/alex-coleman-60221b81?trk=profile-badge'>Alex Coleman</a></div>
+      </div>
+      <div></div>
+    </div>
+    <div class="atomroot">
+      <div class="editor_panes">
+        <!-- <div class="project_pane">
         <div class="tab_header">
           Project
         </div>
@@ -203,16 +248,16 @@
           aboutme.txt
         </div>
       </div> -->
-      <div class="page">
-        <div class="pane_header">
-          <div class="pane_header_tab">
-            resume.txt
+        <div class="page">
+          <div class="pane_header">
+            <div class="pane_header_tab">
+              resume.txt
+            </div>
+            <div class="pane_header_empty">
+            </div>
           </div>
-          <div class="pane_header_empty">
-          </div>
-        </div>
-        <div class="editor_pane">
-          <pre class="code plaintext" id="resume">Alexander Coleman
+          <div class="editor_pane">
+            <pre class="code plaintext" id="resume">Alexander Coleman
 a.coleman@knights.ucf.edu
 484-723-3559
 ________________________________________________________________________
@@ -250,18 +295,19 @@ Google Code Jam (Spring 2017)
 •	International individual programming competition
 •	Placed 75th of a starting 30,000 in Google Code Jam
           </pre>
-        </div>
-      </div>
-      <div class="page">
-        <div class="pane_header">
-          <div class="pane_header_tab">
-            index.html
-          </div>
-          <div class="pane_header_empty">
           </div>
         </div>
-        <div class="editor_pane">
-          <pre class="code" id="source"></pre>
+        <div class="page">
+          <div class="pane_header">
+            <div class="pane_header_tab">
+              index.html
+            </div>
+            <div class="pane_header_empty">
+            </div>
+          </div>
+          <div class="editor_pane">
+            <pre class="code" id="source"></pre>
+          </div>
         </div>
       </div>
     </div>
